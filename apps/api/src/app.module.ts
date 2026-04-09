@@ -14,17 +14,46 @@ import { QualityModule } from './modules/quality/quality.module';
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
       inject: [ConfigService],
-      useFactory: (config: ConfigService) => ({
-        type: 'mysql',
-        host: config.get('DB_HOST', 'localhost'),
-        port: config.get('DB_PORT', 3306),
-        username: config.get('DB_USER', 'root'),
-        password: config.get('DB_PASSWORD', ''),
-        database: config.get('DB_NAME', 'industrial_dev'),
-        entities: [__dirname + '/**/*.entity{.ts,.js}'],
-        synchronize: config.get('NODE_ENV') !== 'production',
-        logging: config.get('NODE_ENV') === 'development',
-      }),
+      useFactory: (config: ConfigService) => {
+        const dbType = config.get('DB_TYPE', 'sqlite');
+        
+        const sqliteConfig: any = {
+          type: 'sqljs',
+          location: config.get('DB_PATH', 'data/industrial_dev.db'),
+          autoSave: true,
+          entities: [__dirname + '/**/*.entity{.ts,.js}'],
+          synchronize: config.get('NODE_ENV') !== 'production',
+          logging: config.get('NODE_ENV') === 'development',
+        };
+        
+        const mysqlConfig: any = {
+          type: 'mysql',
+          host: config.get('DB_HOST', 'localhost'),
+          port: parseInt(config.get('DB_PORT', '3306')),
+          username: config.get('DB_USER', 'root'),
+          password: config.get('DB_PASSWORD', ''),
+          database: config.get('DB_NAME', 'industrial_dev'),
+          entities: [__dirname + '/**/*.entity{.ts,.js}'],
+          synchronize: config.get('NODE_ENV') !== 'production',
+          logging: config.get('NODE_ENV') === 'development',
+        };
+        
+        const postgresConfig: any = {
+          type: 'postgres',
+          host: config.get('DB_HOST', 'localhost'),
+          port: parseInt(config.get('DB_PORT', '5432')),
+          username: config.get('DB_USER', 'postgres'),
+          password: config.get('DB_PASSWORD', ''),
+          database: config.get('DB_NAME', 'industrial_dev'),
+          entities: [__dirname + '/**/*.entity{.ts,.js}'],
+          synchronize: config.get('NODE_ENV') !== 'production',
+          logging: config.get('NODE_ENV') === 'development',
+        };
+        
+        if (dbType === 'sqlite') return sqliteConfig;
+        if (dbType === 'postgres') return postgresConfig;
+        return mysqlConfig;
+      },
     }),
     ProductionModule,
     InventoryModule,

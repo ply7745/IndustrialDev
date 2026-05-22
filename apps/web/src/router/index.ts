@@ -7,6 +7,36 @@ const routes = [
     component: () => import('./views/Dashboard.vue')
   },
   {
+    path: '/employee',
+    name: 'Employee',
+    component: () => import('./views/Employee.vue')
+  },
+  {
+    path: '/company',
+    name: 'Company',
+    component: () => import('./views/Company.vue')
+  },
+  {
+    path: '/position',
+    name: 'Position',
+    component: () => import('./views/Position.vue')
+  },
+  {
+    path: '/salary',
+    name: 'Salary',
+    component: () => import('./views/Salary.vue')
+  },
+  {
+    path: '/application',
+    name: 'Application',
+    component: () => import('./views/Application.vue')
+  },
+  {
+    path: '/notification',
+    name: 'Notification',
+    component: () => import('./views/Notification.vue')
+  },
+  {
     path: '/mes',
     name: 'MES',
     component: () => import('./views/MES.vue')

@@ -1,16 +1,44 @@
 <script setup lang="ts">
-import { RouterView } from 'vue-router'
+import { RouterView, useRouter, useRoute } from 'vue-router'
+
+const router = useRouter()
+const route = useRoute()
+
+const handleMenuSelect = (index: string) => {
+  const pathMap: Record<string, string> = {
+    '1': '/mes',
+    '2': '/wms',
+    '3': '/qms',
+    '4': '/ems',
+    '5': '/employee',
+    '6': '/company',
+    '7': '/position',
+    '8': '/salary',
+    '9': '/application',
+    '10': '/notification'
+  }
+  if (pathMap[index]) {
+    router.push(pathMap[index])
+  }
+}
 </script>
 
 <template>
   <el-container class="app-container">
     <el-header class="app-header">
-      <div class="logo">工业信息化管理系统</div>
-      <el-menu mode="horizontal" :ellipsis="false">
-        <el-menu-item index="1">生产管理 (MES)</el-menu-item>
-        <el-menu-item index="2">仓储管理 (WMS)</el-menu-item>
-        <el-menu-item index="3">质量管理 (QMS)</el-menu-item>
-        <el-menu-item index="4">设备管理 (EMS)</el-menu-item>
+      <div class="logo">劳务公司员工信息管理系统</div>
+      <el-menu
+        mode="horizontal"
+        :ellipsis="false"
+        :default-active="route.path"
+        @select="handleMenuSelect"
+      >
+        <el-menu-item index="/employee">员工管理</el-menu-item>
+        <el-menu-item index="/company">企业管理</el-menu-item>
+        <el-menu-item index="/position">岗位管理</el-menu-item>
+        <el-menu-item index="/salary">工资管理</el-menu-item>
+        <el-menu-item index="/application">报名管理</el-menu-item>
+        <el-menu-item index="/notification">通知中心</el-menu-item>
       </el-menu>
     </el-header>
     <el-main>

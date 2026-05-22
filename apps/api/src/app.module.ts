@@ -7,6 +7,12 @@ import { ProductionModule } from './modules/production/production.module';
 import { InventoryModule } from './modules/inventory/inventory.module';
 import { EquipmentModule } from './modules/equipment/equipment.module';
 import { QualityModule } from './modules/quality/quality.module';
+import { EmployeeModule } from './modules/employee/employee.module';
+import { CompanyModule } from './modules/company/company.module';
+import { PositionModule } from './modules/position/position.module';
+import { SalaryModule } from './modules/salary/salary.module';
+import { ApplicationModule } from './modules/application/application.module';
+import { NotificationModule } from './modules/notification/notification.module';
 
 @Module({
   imports: [
@@ -59,6 +65,12 @@ import { QualityModule } from './modules/quality/quality.module';
     InventoryModule,
     EquipmentModule,
     QualityModule,
+    EmployeeModule,
+    CompanyModule,
+    PositionModule,
+    SalaryModule,
+    ApplicationModule,
+    NotificationModule,
   ],
   controllers: [AppController],
   providers: [AppService],

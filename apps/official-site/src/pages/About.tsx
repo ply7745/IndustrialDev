@@ -25,21 +25,22 @@ const About = () => {
   ];
 
   const values = [
-    { icon: <Target className="w-10 h-10 text-primary-500" />, title: '客户至上', description: '以客户需求为导向，提供最佳解决方案' },
-    { icon: <Award className="w-10 h-10 text-primary-500" />, title: '追求卓越', description: '持续创新，追求技术和服务的卓越品质' },
-    { icon: <Users className="w-10 h-10 text-primary-500" />, title: '团队协作', description: '发挥团队力量，共同创造价值' },
-    { icon: <TrendingUp className="w-10 h-10 text-primary-500" />, title: '创新驱动', description: '以技术创新引领行业发展' }
+    { icon: <Target className="w-10 h-10" />, title: '客户至上', description: '以客户需求为导向，提供最佳解决方案' },
+    { icon: <Award className="w-10 h-10" />, title: '追求卓越', description: '持续创新，追求技术和服务的卓越品质' },
+    { icon: <Users className="w-10 h-10" />, title: '团队协作', description: '发挥团队力量，共同创造价值' },
+    { icon: <TrendingUp className="w-10 h-10" />, title: '创新驱动', description: '以技术创新引领行业发展' }
   ];
 
   return (
     <div className="min-h-screen pt-20">
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-br from-dark-900 via-dark-800 to-dark-900 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,rgba(59,130,246,0.15),transparent_50%)]"></div>
+        <div className="absolute inset-0 cyber-grid opacity-30"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,rgba(0,212,255,0.15),transparent_50%)]"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center max-w-3xl mx-auto">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">关于我们</h1>
-            <p className="text-lg text-gray-400">
+            <h1 className="text-4xl md:text-5xl font-bold text-neon-blue mb-6">关于我们</h1>
+            <p className="text-lg text-gray-300">
               专注数字化工厂10年，致力于为制造企业提供全方位的数字化转型解决方案
             </p>
           </div>
@@ -47,32 +48,33 @@ const About = () => {
       </section>
 
       {/* Company Overview */}
-      <section className="py-20 bg-dark-800">
-        <div className="container mx-auto px-4">
+      <section className="py-20 bg-dark-800 relative overflow-hidden">
+        <div className="absolute inset-0 cyber-grid opacity-20"></div>
+        <div className="container mx-auto px-4 relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-6">
-              <h2 className="text-3xl md:text-4xl font-bold text-white">公司简介</h2>
-              <p className="text-gray-400 text-lg">
+              <h2 className="text-3xl md:text-4xl font-bold text-neon-blue">公司简介</h2>
+              <p className="text-gray-300 text-lg">
                 宁波感叹号科技有限公司成立于2014年，是一家专注于数字化工厂信息系统开发的高新技术企业。我们拥有一支经验丰富、技术精湛的专业团队，致力于为制造企业提供全方位的数字化转型解决方案。
               </p>
               <p className="text-gray-400">
                 经过10年的发展，我们已成功服务50+制造企业，帮助客户实现生产效率提升、成本降低和品质改善。我们的产品涵盖MES制造执行系统、WMS仓储管理系统、QMS质量管理系统、EMS设备管理系统等多个领域。
               </p>
               <div className="grid grid-cols-2 gap-6 pt-4">
-                <div className="bg-dark-900 p-6 rounded-xl border border-dark-700">
-                  <div className="text-4xl font-bold text-primary-500 mb-2">10+</div>
+                <div className="bg-glass border border-primary-500/30 p-6 rounded-xl">
+                  <div className="text-4xl font-bold text-neon-blue mb-2">10+</div>
                   <div className="text-gray-400">年行业经验</div>
                 </div>
-                <div className="bg-dark-900 p-6 rounded-xl border border-dark-700">
-                  <div className="text-4xl font-bold text-primary-500 mb-2">50+</div>
+                <div className="bg-glass border border-primary-500/30 p-6 rounded-xl">
+                  <div className="text-4xl font-bold text-neon-blue mb-2">50+</div>
                   <div className="text-gray-400">服务客户</div>
                 </div>
-                <div className="bg-dark-900 p-6 rounded-xl border border-dark-700">
-                  <div className="text-4xl font-bold text-primary-500 mb-2">100+</div>
+                <div className="bg-glass border border-primary-500/30 p-6 rounded-xl">
+                  <div className="text-4xl font-bold text-neon-blue mb-2">100+</div>
                   <div className="text-gray-400">专业团队</div>
                 </div>
-                <div className="bg-dark-900 p-6 rounded-xl border border-dark-700">
-                  <div className="text-4xl font-bold text-primary-500 mb-2">10+</div>
+                <div className="bg-glass border border-primary-500/30 p-6 rounded-xl">
+                  <div className="text-4xl font-bold text-neon-blue mb-2">10+</div>
                   <div className="text-gray-400">产品模块</div>
                 </div>
               </div>
@@ -81,7 +83,7 @@ const About = () => {
               <img 
                 src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=700&h=600&fit=crop" 
                 alt="公司办公环境" 
-                className="rounded-2xl shadow-xl"
+                className="rounded-2xl shadow-xl border border-primary-500/30"
               />
             </div>
           </div>
@@ -89,18 +91,19 @@ const About = () => {
       </section>
 
       {/* Values */}
-      <section className="py-20 bg-dark-900">
-        <div className="container mx-auto px-4">
+      <section className="py-20 bg-dark-900 relative overflow-hidden">
+        <div className="absolute inset-0 cyber-grid opacity-20"></div>
+        <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">核心价值观</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-neon-blue mb-4">核心价值观</h2>
             <p className="text-gray-400 max-w-2xl mx-auto">
               我们秉承这些价值观，为客户创造最大价值
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {values.map((value, index) => (
-              <div key={index} className="bg-dark-800 border border-dark-700 rounded-2xl p-8 text-center hover:border-primary-500/50 transition-all">
-                <div className="mb-6 flex justify-center">
+              <div key={index} className="bg-glass border border-primary-500/30 rounded-2xl p-8 text-center hover:border-neon-cyan hover:shadow-neon transition-all">
+                <div className="mb-6 flex justify-center text-neon-cyan">
                   {value.icon}
                 </div>
                 <h3 className="text-xl font-bold text-white mb-3">{value.title}</h3>
@@ -112,10 +115,11 @@ const About = () => {
       </section>
 
       {/* Milestones */}
-      <section className="py-20 bg-dark-800">
-        <div className="container mx-auto px-4">
+      <section className="py-20 bg-dark-800 relative overflow-hidden">
+        <div className="absolute inset-0 cyber-grid opacity-20"></div>
+        <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">发展历程</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-neon-blue mb-4">发展历程</h2>
             <p className="text-gray-400 max-w-2xl mx-auto">
               十年耕耘，十年成长
             </p>
@@ -125,15 +129,15 @@ const About = () => {
               {milestones.map((milestone, index) => (
                 <div key={index} className={`flex gap-6 ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}>
                   <div className={`flex-1 ${index % 2 === 0 ? 'text-right' : 'text-left'}`}>
-                    <div className="bg-dark-900 border border-dark-700 rounded-xl p-6 hover:border-primary-500/50 transition-all">
-                      <div className="text-2xl font-bold text-primary-500 mb-2">{milestone.year}</div>
+                    <div className="bg-glass border border-primary-500/30 rounded-xl p-6 hover:border-neon-cyan transition-all">
+                      <div className="text-2xl font-bold text-neon-blue mb-2">{milestone.year}</div>
                       <h3 className="text-lg font-semibold text-white mb-2">{milestone.title}</h3>
                       <p className="text-gray-400">{milestone.description}</p>
                     </div>
                   </div>
                   <div className="flex flex-col items-center">
-                    <div className="w-4 h-4 bg-primary-500 rounded-full border-4 border-dark-900"></div>
-                    {index < milestones.length - 1 && <div className="w-0.5 h-full bg-dark-700"></div>}
+                    <div className="w-4 h-4 bg-neon-cyan rounded-full border-4 border-dark-900 shadow-neon"></div>
+                    {index < milestones.length - 1 && <div className="w-0.5 h-full bg-primary-500/30"></div>}
                   </div>
                   <div className="flex-1"></div>
                 </div>
@@ -144,10 +148,11 @@ const About = () => {
       </section>
 
       {/* Team */}
-      <section className="py-20 bg-dark-900">
-        <div className="container mx-auto px-4">
+      <section className="py-20 bg-dark-900 relative overflow-hidden">
+        <div className="absolute inset-0 cyber-grid opacity-20"></div>
+        <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">核心团队</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-neon-blue mb-4">核心团队</h2>
             <p className="text-gray-400 max-w-2xl mx-auto">
               专业的团队，为您提供专业的服务
             </p>
@@ -159,12 +164,12 @@ const About = () => {
                   <img 
                     src={member.image} 
                     alt={member.name} 
-                    className="w-full aspect-square object-cover rounded-2xl"
+                    className="w-full aspect-square object-cover rounded-2xl border border-primary-500/30 group-hover:border-neon-cyan transition-all"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-dark-900/80 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 </div>
                 <h3 className="text-xl font-bold text-white mb-2">{member.name}</h3>
-                <p className="text-primary-400">{member.role}</p>
+                <p className="text-neon-blue">{member.role}</p>
               </div>
             ))}
           </div>

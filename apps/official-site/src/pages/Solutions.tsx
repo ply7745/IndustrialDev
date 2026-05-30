@@ -12,7 +12,7 @@ const Solutions = () => {
   const solutions = [
     {
       id: 'mes',
-      icon: <Factory className="w-12 h-12 text-primary-500" />,
+      icon: <Factory className="w-12 h-12" />,
       title: 'MES制造执行系统',
       description: '全面的生产过程管理系统，帮助企业实现生产过程的透明化、数字化和智能化。',
       image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&h=500&fit=crop',
@@ -33,7 +33,7 @@ const Solutions = () => {
     },
     {
       id: 'wms',
-      icon: <Package className="w-12 h-12 text-primary-500" />,
+      icon: <Package className="w-12 h-12" />,
       title: 'WMS仓储管理系统',
       description: '智能化仓储管理系统，实现仓储作业的高效、精准和可视化管理。',
       image: 'https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=800&h=500&fit=crop',
@@ -54,7 +54,7 @@ const Solutions = () => {
     },
     {
       id: 'qms',
-      icon: <ShieldCheck className="w-12 h-12 text-primary-500" />,
+      icon: <ShieldCheck className="w-12 h-12" />,
       title: 'QMS质量管理系统',
       description: '全流程质量管理系统，确保产品质量稳定可靠，持续改进质量水平。',
       image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=500&fit=crop',
@@ -75,7 +75,7 @@ const Solutions = () => {
     },
     {
       id: 'ems',
-      icon: <Cog className="w-12 h-12 text-primary-500" />,
+      icon: <Cog className="w-12 h-12" />,
       title: 'EMS设备管理系统',
       description: '设备全生命周期管理系统，最大化设备利用率，延长设备使用寿命。',
       image: 'https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=800&h=500&fit=crop',
@@ -100,11 +100,12 @@ const Solutions = () => {
     <div className="min-h-screen pt-20">
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-br from-dark-900 via-dark-800 to-dark-900 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,rgba(59,130,246,0.15),transparent_50%)]"></div>
+        <div className="absolute inset-0 cyber-grid opacity-30"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,rgba(0,212,255,0.15),transparent_50%)]"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center max-w-3xl mx-auto">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">核心解决方案</h1>
-            <p className="text-lg text-gray-400">
+            <h1 className="text-4xl md:text-5xl font-bold text-neon-blue mb-6">核心解决方案</h1>
+            <p className="text-lg text-gray-300">
               我们提供完整的数字化工厂解决方案，覆盖生产、仓储、质量、设备等核心领域，助力制造企业实现智能化升级
             </p>
           </div>
@@ -116,30 +117,31 @@ const Solutions = () => {
         <section 
           key={solution.id} 
           id={solution.id}
-          className={`py-20 ${index % 2 === 0 ? 'bg-dark-800' : 'bg-dark-900'}`}
+          className={`py-20 relative overflow-hidden ${index % 2 === 0 ? 'bg-dark-800' : 'bg-dark-900'}`}
         >
-          <div className="container mx-auto px-4">
+          <div className="absolute inset-0 cyber-grid opacity-20"></div>
+          <div className="container mx-auto px-4 relative z-10">
             <div className={`grid lg:grid-cols-2 gap-16 items-center ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
               <div className={index % 2 === 1 ? 'lg:order-2' : ''}>
                 <img 
                   src={solution.image} 
                   alt={solution.title} 
-                  className="rounded-2xl shadow-xl"
+                  className="rounded-2xl shadow-xl border border-primary-500/30"
                 />
               </div>
               <div className="space-y-8">
-                <div className="p-4 bg-dark-700/50 rounded-xl w-fit">
-                  {solution.icon}
+                <div className="p-4 bg-glass rounded-xl w-fit border border-primary-500/30">
+                  <div className="text-neon-cyan">{solution.icon}</div>
                 </div>
-                <h2 className="text-3xl md:text-4xl font-bold text-white">{solution.title}</h2>
-                <p className="text-gray-400 text-lg">{solution.description}</p>
+                <h2 className="text-3xl md:text-4xl font-bold text-neon-blue">{solution.title}</h2>
+                <p className="text-gray-300 text-lg">{solution.description}</p>
                 
                 <div>
                   <h3 className="text-xl font-semibold text-white mb-4">核心功能</h3>
                   <div className="grid md:grid-cols-2 gap-3">
                     {solution.features.map((feature, idx) => (
                       <div key={idx} className="flex items-center gap-3 text-gray-300">
-                        <CheckCircle2 size={18} className="text-primary-500 flex-shrink-0" />
+                        <CheckCircle2 size={18} className="text-neon-blue flex-shrink-0" />
                         <span>{feature}</span>
                       </div>
                     ))}
@@ -150,8 +152,8 @@ const Solutions = () => {
                   <h3 className="text-xl font-semibold text-white mb-4">客户收益</h3>
                   <div className="grid md:grid-cols-2 gap-4">
                     {solution.benefits.map((benefit, idx) => (
-                      <div key={idx} className="bg-gradient-to-br from-primary-500/10 to-secondary-500/10 border border-primary-500/20 rounded-xl p-4 text-center">
-                        <div className="text-primary-400 font-semibold">{benefit}</div>
+                      <div key={idx} className="bg-glass border border-neon-blue/30 rounded-xl p-4 text-center">
+                        <div className="text-neon-cyan font-semibold">{benefit}</div>
                       </div>
                     ))}
                   </div>
@@ -163,34 +165,35 @@ const Solutions = () => {
       ))}
 
       {/* Integrated Solution */}
-      <section className="py-20 bg-dark-800">
-        <div className="container mx-auto px-4">
+      <section className="py-20 bg-dark-800 relative overflow-hidden">
+        <div className="absolute inset-0 cyber-grid opacity-20"></div>
+        <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">一体化解决方案</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-neon-blue mb-4">一体化解决方案</h2>
             <p className="text-gray-400 max-w-2xl mx-auto">
               我们的各个系统可以无缝集成，形成完整的数字化工厂解决方案
             </p>
           </div>
           
-          <div className="bg-dark-900 rounded-3xl p-8 md:p-12 border border-dark-700">
+          <div className="bg-glass rounded-3xl p-8 md:p-12 border border-primary-500/30">
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
               {solutions.map((solution, index) => (
                 <div key={index} className="text-center">
-                  <div className="p-4 bg-dark-800 rounded-xl w-fit mx-auto mb-4">
-                    {solution.icon}
+                  <div className="p-4 bg-dark-700/50 rounded-xl w-fit mx-auto mb-4 border border-primary-500/30">
+                    <div className="text-neon-cyan">{solution.icon}</div>
                   </div>
                   <h3 className="text-lg font-semibold text-white">{solution.title}</h3>
                 </div>
               ))}
             </div>
             
-            <div className="border-t border-dark-700 pt-8 text-center">
-              <p className="text-gray-400 text-lg mb-6">
+            <div className="border-t border-primary-500/30 pt-8 text-center">
+              <p className="text-gray-300 text-lg mb-6">
                 数据互通，流程协同，实现企业数字化转型的全面升级
               </p>
               <a 
                 href="/contact" 
-                className="inline-flex items-center gap-2 bg-gradient-to-r from-primary-500 to-secondary-500 text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-xl hover:shadow-primary-500/30 transition-all"
+                className="inline-flex items-center gap-2 bg-gradient-to-r from-primary-500 to-secondary-500 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:shadow-neon transition-all border border-primary-400"
               >
                 获取完整方案 <ArrowRight size={20} />
               </a>

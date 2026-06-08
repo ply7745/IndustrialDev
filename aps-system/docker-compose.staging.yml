@@ -1,0 +1,70 @@
+version: '3.8'
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile
+    container_name: aps-api-staging
+    environment:
+      - NODE_ENV=staging
+      - PORT=3000
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=staging123
+      - DB_DATABASE=aps_staging
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_started
+    networks:
+      - aps-staging-network
+
+  web:
+    build:
+      context: .
+      dockerfile: apps/web/Dockerfile
+    container_name: aps-web-staging
+    ports:
+      - "8080:80"
+    depends_on:
+      - api
+    networks:
+      - aps-staging-network
+
+  postgres:
+    image: postgres:15-alpine
+    container_name: aps-postgres-staging
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=staging123
+      - POSTGRES_DB=aps_staging
+    volumes:
+      - postgres_staging_data:/var/lib/postgresql/data
+    networks:
+      - aps-staging-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    container_name: aps-redis-staging
+    volumes:
+      - redis_staging_data:/data
+    networks:
+      - aps-staging-network
+
+volumes:
+  postgres_staging_data:
+  redis_staging_data:
+
+networks:
+  aps-staging-network:
+    driver: bridge
